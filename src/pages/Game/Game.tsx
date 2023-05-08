@@ -6,11 +6,17 @@ import {} from "./Game.styled";
 
 import { useCrosswordData } from "../../context/crosswordDataContext";
 import { Spin } from "antd";
+import { Header } from "../../components/Header/Header";
 
 export const Game: React.FC<GameProps> = () => {
   const [crosswordData] = useCrosswordData();
 
   if (!crosswordData) return <Spin />;
 
-  return <Crossword data={crosswordData} />;
+  return (
+    <>
+      <Header name="Game" />
+      <Crossword data={crosswordData} />
+    </>
+  );
 };

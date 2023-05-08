@@ -9,6 +9,7 @@ import { useCrosswordData } from "../../context/crosswordDataContext";
 import CrosswordInput from "../../components/CrosswordInput/CrosswordInput";
 import { InputField } from "../../components/CrosswordInput/CrosswordInput.interface";
 import { CrosswordData } from "../Game/Game.interface";
+import { Header } from "../../components/Header/Header";
 
 export const Create: React.FC<GameProps> = () => {
   const [acrossInputFields, setAcrossInputFields] = useState<InputField[]>([
@@ -96,6 +97,7 @@ export const Create: React.FC<GameProps> = () => {
 
   return (
     <>
+      <Header name="Create Game" />
       <CrosswordInput
         direction="Across"
         inputFields={acrossInputFields}
