@@ -1,41 +1,39 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { Button } from "antd";
 
-export const Container = styled.div`
+export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  justify-content: center;
+  height: 100vh;
 `;
 
-export const GridContainer = styled.div`
+export const HomeTitle = styled.h1`
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #001529;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const HomeButton = styled(Button)`
   margin: 1rem;
-  /* Add custom styles for your grid container */
-`;
+  width: 300px;
+  border-radius: 8px;
+  background-color: #1890ff;
+  border-color: #1890ff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s;
 
-export const CluesContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 1rem;
-
-  & > div {
-    width: 50%;
+  &:hover {
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   }
-
-  h3 {
-    margin-bottom: 0.5rem;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-`;
-
-export const ButtonsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-
-  /* Add custom styles for your buttons container */
 `;

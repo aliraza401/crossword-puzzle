@@ -1,5 +1,1 @@
-export interface Clue {
-    number: number;
-    text: string;
-  }
-  
+export interface HomeProps {}

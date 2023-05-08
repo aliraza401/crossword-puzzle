@@ -1,84 +1,33 @@
-import React, { useState } from "react";
-import { Button, Modal } from "antd";
+import React from "react";
+import { HomeProps } from "./Home.interface";
 import {
-  Container,
-  GridContainer,
-  CluesContainer,
-  ButtonsContainer,
+  HomeContainer,
+  HomeTitle,
+  HomeButton,
+  ButtonGroup,
 } from "./Home.styled";
-import { Clue } from "./Home.interface";
-import Grid from "./../Grid/Grid";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../utils/constants";
 
-export const Home: React.FC = () => {
-  const [isHintsModalVisible, setIsHintsModalVisible] = useState(false);
-
-  const acrossClues: Clue[] = [
-    {
-      number: 1,
-      text: "A small green vegetable that comes in pods.",
-    },
-    {
-      number: 2,
-      text: "The sheltered side away from the wind.",
-    },
-  ];
-  const downClues: Clue[] = [
-    {
-      number: 1,
-      text: "An ___ a day keeps the doctor away.",
-    },
-  ];
-
-  const hints = [
-    "An ___ a day keeps the doctor away.", // APPLE
-    "A small green vegetable that comes in pods.", // PEA
-    "The sheltered side away from the wind.", // LEE
-  ];
- 
-  const showHintsModal = () => setIsHintsModalVisible(true);
-  const handleHintsModalCancel = () => setIsHintsModalVisible(false);
+const Home: React.FC<HomeProps> = ({}) => {
+  const navigate = useNavigate();
 
   return (
-    <Container>
-      <h3>Crossword Puzzle</h3>
-      <GridContainer>
-        <Grid />
-      </GridContainer>
-      <CluesContainer>
-        <div>
-          <h3>Across</h3>
-          <ul>
-            {acrossClues.map((clue) => (
-              <li key={clue.number}>{`${clue.number}. ${clue.text}`}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3>Down</h3>
-          <ul>
-            {downClues.map((clue) => (
-              <li key={clue.number}>{`${clue.number}. ${clue.text}`}</li>
-            ))}
-          </ul>
-        </div>
-      </CluesContainer>
-      <ButtonsContainer>
-        <Button type="primary" onClick={showHintsModal}>
-          Show Hints
-        </Button>
-      </ButtonsContainer>
-      <Modal
-        title="Hints"
-        open={isHintsModalVisible}
-        onCancel={handleHintsModalCancel}
-        footer={<></>}
-      >
-        <ul>
-          {hints.map((hint, index) => (
-            <li key={index}>{hint}</li>
-          ))}
-        </ul>
-      </Modal>
-    </Container>
+    <HomeContainer>
+      <HomeTitle>Welcome to Crossword Puzzle Game</HomeTitle>
+      <ButtonGroup>
+        <HomeButton
+          type="primary"
+          onClick={() => navigate(ROUTES.CREATE_CORSSWORD)}
+        >
+          Create New Puzzle
+        </HomeButton>
+        <HomeButton type="primary" onClick={() => navigate(ROUTES.GAME)}>
+          Play Game
+        </HomeButton>
+      </ButtonGroup>
+    </HomeContainer>
   );
 };
+
+export default Home;
