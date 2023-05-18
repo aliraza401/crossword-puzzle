@@ -6,7 +6,9 @@ export const ROUTES = {
   GAME: "/game",
 };
 
-export const data: CrosswordData = {
+import Crossword, { useIpuz } from "@jaredreisinger/react-crossword";
+
+export const dataLvl1: CrosswordData = {
   across: {
     1: {
       clue: "one plus one",
@@ -14,13 +16,25 @@ export const data: CrosswordData = {
       row: 0,
       col: 0,
     },
+    2: {
+      clue: "Opposite of lose",
+      answer: "WIN",
+      row: 1,
+      col: 0,
+    },
   },
   down: {
-    2: {
+    1: {
       clue: "three minus two",
       answer: "ONE",
       row: 0,
       col: 2,
     },
+    // 2: {
+    //   clue: "Opposite of out",
+    //   answer: "IN",
+    //   row: 1,
+    //   col: 1,
+    // },
   },
 };

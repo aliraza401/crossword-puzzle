@@ -13,5 +13,5 @@ export interface CrosswordData {
 }
 
 export interface GameProps {
-  //   CrosswordData: CrosswordData;
+  crosswordData: CrosswordData | undefined;
 }
